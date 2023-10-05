@@ -1,0 +1,1428 @@
+1....hello world
+
+ACTIVITY_MAIN.XML
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".MainActivity" >
+<TextView
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentLeft="true"
+android:layout_alignParentTop="true"
+android:layout_marginLeft="29dp"
+android:layout_marginTop="23dp"
+android:text="@string/hello_world" />
+</RelativeLayout>
+
+
+MAINACTIVITY.JAVA
+package com.example.hello;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+public class MainActivity extends Activity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+}
+
+
+
+2...............LIFE CYCLE
+
+
+MAINACTIVITY.JAVA
+
+package com.example.lifecycle;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.Toast;
+public class MainActivity extends Activity {
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+Toast.makeText(getApplicationContext(), "Home Application 
+Created",Toast.LENGTH_LONG).show();
+}
+protected void onStart()
+{
+Toast.makeText(getApplicationContext(), "Activity started 
+successfully",Toast.LENGTH_LONG).show();
+super.onStart();
+}
+protected void onResume()
+{
+Toast.makeText(getApplicationContext(), " Resume 
+Activity",Toast.LENGTH_LONG).show();
+super.onResume();
+}
+protected void onPause()
+{
+Toast.makeText(getApplicationContext(), " Pause Activity",Toast.LENGTH_LONG).show()
+super.onPause();
+}
+protected void onStop()
+{
+Toast.makeText(getApplicationContext(), "Stop Activity",Toast.LENGTH_LONG).show();
+super.onStop();
+}
+protected void onDestroy()
+{
+Toast.makeText(getApplicationContext(), " Destroy 
+Activity",Toast.LENGTH_LONG).show();
+super.onDestroy();
+}
+protected void onRestart()
+{
+Toast.makeText(getApplicationContext(), " Restart 
+Activity",Toast.LENGTH_LONG).show();
+super.onRestart();
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+}
+
+
+
+3..........
+
+OPTION MENU
+
+ACTIVITYMAIN.XML
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".MainActivity" >
+</RelativeLayout>
+
+
+MAINACTIVITY.JAVA
+
+
+package com.example.menu;
+import android.os.Bundle;
+import android.app.Activity;
+import android.R.menu;
+public class MainActivity extends Activity {
+Button b1;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main); 
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+public boolean onOptionsItemSelected(MenuItem m)
+{
+switch(m.getItemId())
+{
+case R.id.help:
+Toast.makeText(getApplicationContext(),"you selected help",Toast.LENGTH_LONG).show();
+return true;
+case R.id.del:
+Toast.makeText(getApplicationContext(),"you selected del",Toast.LENGTH_LONG).show();
+return true;
+case R.id.upload:
+Toast.makeText(getApplicationContext(),"you selected upload",Toast.LENGTH_LONG).show();
+return true;
+case R.id.feedback:
+Toast.makeText(getApplicationContext(),"you selected feedback",Toast.LENGTH_LONG).show();
+return true;
+default:
+return super.onOptionsItemSelected(m);
+}
+}
+}
+
+
+Main.xml
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<item
+android:id="@+id/action_settings"
+android:orderInCategory="100"
+android:showAsAction="never"
+android:title="@string/action_settings"/>
+<item
+android:id="@+id/help"
+android:title="help"/>
+<item
+android:id="@+id/del"
+android:title="del"/>
+<item
+android:id="@+id/upload"
+android:title="upload"/>
+<item
+android:id="@+id/feedback"
+android:title="feedback"/>
+</menu
+
+
+CONTEXT MENU
+
+
+ACTIVITY_MAIN.XML
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".MainActivity" >
+<Button
+android:id="@+id/button1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentLeft="true"
+android:layout_alignParentTop="true"
+android:layout_marginLeft="92dp"
+android:layout_marginTop="78dp"
+android:text="Button" />
+</RelativeLayout>
+
+
+MAINACTIVITY.JAVA
+
+
+package com.example.contextmenu;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.Button;
+import android.widget.Toast;
+public class MainActivity extends Activity {
+Button bt1;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+bt1=(Button)findViewById(R.id.button1);
+registerForContextMenu(bt1);
+}
+public void onCreateContextMenu(ContextMenu menu,View v,ContextMenuInfo mi)
+{
+super.onCreateContextMenu(menu, v, mi);
+menu.setHeaderTitle("ContextMenu");
+menu.add(0,v.getId(),0,"help");
+menu.add(0,v.getId(),0,"upload");
+menu.add(0,v.getId(),0,"del");
+menu.add(0,v.getId(),0,"feedback");
+}
+public boolean onContextItemSelected(MenuItem im)
+{
+Toast.makeText(getApplicationContext(),"selct"+im.getTitle(),Toast.LENGTH_LONG).sho
+w();
+return true;
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+}
+
+
+
+
+
+
+POPUP MENU
+
+ACTIVITY_MAIN.XML
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".MainActivity" >
+<Button
+android:id="@+id/button1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentTop="true"
+android:layout_centerHorizontal="true"
+android:layout_marginTop="54dp"
+android:text="Button" />
+</RelativeLayout>
+
+
+MAINACTIVITY.JAVA
+
+package com.example.popupmenu;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.Toast;
+public class MainActivity extends Activity {
+Button bt1;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+bt1=(Button)findViewById(R.id.button1);
+bt1.setOnClickListener(new View.OnClickListener() {
+public void onClick(View v) {
+// TODO Auto-generated method stub
+PopupMenu pop=new PopupMenu(MainActivity.this,v);
+pop.getMenuInflater().inflate(R.menu.main, pop.getMenu());
+pop.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+public boolean onMenuItemClick(MenuItem item ) {
+// TODO Auto-generated method stub
+Toast.makeText(MainActivity.this,"you click:"+item.getTitle(), 
+Toast.LENGTH_LONG).show();
+return true;
+}
+});
+pop.show();
+}
+});
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+}
+
+
+MAIN.XML
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<item
+android:id="@+id/action_settings"
+android:orderInCategory="100"
+android:showAsAction="never"
+android:title="@string/action_settings"/>
+<item
+android:id="@+id/search"
+android:title="search"/>
+<item
+android:id="@+id/upload"
+android:title="upload"/>
+<item
+android:id="@+id/print"
+android:title="print"/>
+<item
+android:id="@+id/share"
+android:title="share"/>
+</menu>
+
+
+
+..........Database pgm insert,delete,update,view ,view all
+
+
+package com.example.db;
+
+import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.Menu;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+	EditText Rollno,Name,Marks;
+    Button Insert,Delete,Update,View,ViewAll;
+    SQLiteDatabase db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        Rollno=(EditText)findViewById(R.id.editText1);
+        Name=(EditText)findViewById(R.id.editText2);
+        Marks=(EditText)findViewById(R.id.editText3);
+        Insert=(Button)findViewById(R.id.button1);
+        Delete=(Button)findViewById(R.id.button2);
+        Update=(Button)findViewById(R.id.button3);
+        View=(Button)findViewById(R.id.button4);
+        ViewAll=(Button)findViewById(R.id.button5);
+        
+        db = openOrCreateDatabase("StudentDB", Context.MODE_PRIVATE, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS student(rollno VARCHAR,name VARCHAR,marks VARCHAR);");
+
+        Insert.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi") @Override
+            public void onClick(View v) {
+                try {
+                    String rollNo = Rollno.getText().toString().trim();
+                    String name = Name.getText().toString().trim();
+                    String marks = Marks.getText().toString().trim();
+
+                    if (rollNo.isEmpty() || name.isEmpty() || marks.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Please fill in all fields", Toast.LENGTH_LONG).show();
+                    } else {
+                        db.execSQL("INSERT INTO student VALUES('" + rollNo + "','" + name + "','" + marks + "');");
+                        Toast.makeText(getApplicationContext(), "Data inserted successfully", Toast.LENGTH_LONG).show();
+                        clearText();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });       
+        Delete.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi") @Override
+            public void onClick(View v) {
+                try {
+                    String rollNo = Rollno.getText().toString().trim();
+                    if (rollNo.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Please enter a Roll No to delete", Toast.LENGTH_LONG).show();
+                    } else {
+                        db.execSQL("DELETE FROM student WHERE rollno = '" + rollNo + "'");
+                        Toast.makeText(getApplicationContext(), "Record deleted successfully", Toast.LENGTH_LONG).show();
+                        clearText();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        Update.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi") @Override
+            public void onClick(View v) {
+                try {
+                    String rollNo = Rollno.getText().toString().trim();
+                    String name = Name.getText().toString().trim();
+                    String marks = Marks.getText().toString().trim();
+
+                    if (rollNo.isEmpty() || name.isEmpty() || marks.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Please fill in all fields", Toast.LENGTH_LONG).show();
+                    } else {
+                        db.execSQL("UPDATE student SET name = '" + name + "', marks = '" + marks + "' WHERE rollno = '" + rollNo + "'");
+                        Toast.makeText(getApplicationContext(), "Record updated successfully", Toast.LENGTH_LONG).show();
+                         clearText();
+                        
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        View.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi") @Override
+            public void onClick(View v) {
+                try {
+                    String rollNo = Rollno.getText().toString().trim();
+                    if (rollNo.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Please enter a Roll No to view", Toast.LENGTH_LONG).show();
+                    } else {
+                        Cursor c = db.rawQuery("SELECT * FROM student WHERE rollno = '" + rollNo + "'", null);
+                        if (c.moveToFirst()) {
+                            String name = c.getString(1);
+                            String marks = c.getString(2);
+                            showMessage("Student Record", "Roll No: " + rollNo + "\nName: " + name + "\nMarks: " + marks);
+                            clearText();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "No record found for Roll No: " + rollNo, Toast.LENGTH_LONG).show();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    ViewAll.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            try {
+                Cursor c = db.rawQuery("SELECT * FROM student", null);
+                if (c.getCount() == 0) {
+                    Toast.makeText(getApplicationContext(), "No records found", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                StringBuilder buffer = new StringBuilder();
+                while (c.moveToNext()) {
+                    buffer.append("Roll No: " + c.getString(0) + "\n");
+                    buffer.append("Name: " + c.getString(1) + "\n");
+                    buffer.append("Marks: " + c.getString(2) + "\n\n");
+                }
+                showMessage("Student Records", buffer.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    });
+}
+   private void showMessage(String title, String message) {
+    android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+    builder.setCancelable(true);
+    builder.setTitle(title);
+    builder.setMessage(message);
+    builder.show();
+}
+   public void clearText()
+   {
+       Rollno.setText("");
+       Name.setText("");
+       Marks.setText("");
+       Rollno.requestFocus();
+   }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    
+}
+
+
+
+
+
+
+...............................................................................................
+
+
+Bmi calculator
+
+
+Main activity:
+
+
+package com.example.bm1;
+
+import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Button;
+import android.widget.TextView;
+
+@SuppressLint("NewApi") public class MainActivity extends Activity {
+	EditText editText1;
+    EditText editText2;
+    TextView textView3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        editText1 = (EditText) findViewById(R.id.editText1);
+            editText2 = (EditText) findViewById(R.id.editText2);
+            textView3 = (TextView) findViewById(R.id.textView3);
+
+            Button button1 = (Button) findViewById(R.id.button1);
+            button1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    calculateBMI();
+                }
+            });
+        }
+
+        @SuppressLint("NewApi") private void calculateBMI() {
+            String weightStr = editText1.getText().toString();
+            String heightStr = editText2.getText().toString();
+
+            if (!weightStr.isEmpty() && !heightStr.isEmpty()) {
+                float weight = Float.parseFloat(weightStr);
+                float height = Float.parseFloat(heightStr);
+
+                float bmi = weight / (height * height);
+
+                String result = "Your BMI: " + bmi;
+                textView3.setText(result);
+            } else {
+                textView3.setText("Please enter weight and height.");
+            }
+        }
+    }
+
+
+
+activity.xml:
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BMI Calculator" />
+    
+	<EditText
+	    android:id="@+id/editText1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/textView1"
+	    android:layout_below="@+id/textView1"
+	    android:layout_marginTop="33dp"
+	    android:ems="10"
+	    android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+	<EditText
+	    android:id="@+id/editText2"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignLeft="@+id/textView1"
+	    android:layout_below="@+id/textView1"
+	    android:layout_marginTop="90dp"
+	    android:ems="10"
+	    android:inputType="numberDecimal" />
+	<TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	<Button
+	    android:id="@+id/button1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/editText2"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="22dp"
+	    android:text="Calculate" />
+
+</RelativeLayout>
+
+........................................................................................
+
+celsius:
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/Temp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/temprature_convertor"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TableRow
+        android:layout_marginTop="20sp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:text="@string/enter_the_no_"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+<EditText
+android:id="@+id/txtNumber"
+android:layout_height="wrap_content"
+android:layout_marginLeft="20dp"
+android:layout_marginRight="20dp"
+android:layout_weight="1" 
+android:inputType="number">
+
+</EditText>
+</TableRow>
+
+
+<TableRow
+    android:layout_marginTop="20sp">
+
+<TextView
+android:text="@string/result_"
+android:layout_width="wrap_content"
+android:textSize="20sp"
+android:textColor="#000000"
+android:layout_height="wrap_content"
+android:layout_marginLeft="20sp"/>
+<TextView
+android:id="@+id/txtResult"
+android:layout_height="wrap_content"
+android:layout_marginLeft="20dip"
+android:layout_marginRight="20dip"
+android:layout_weight="1"/>
+
+
+
+</TableRow>
+
+<TableRow
+android:layout_marginTop="20sp"
+android:gravity="center">
+
+    <Button
+        android:id="@+id/btnFahrenheit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_span="1"
+        android:clickable="true"
+        android:onClick="ConverToFahrenheit"
+        android:text="@string/fahrenheit" />
+
+<Button
+android:id="@+id/btnCelsius"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/celsius"
+android:onClick="ConverToCelsius"/>
+
+</TableRow>
+
+</TableLayout>
+
+
+Main activity:
+
+package com.example.celsius;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.graphics.Color;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TextView;
+
+
+public class MainActivity extends Activity {
+	EditText num;
+    TextView result;
+    double c,f;
+    TableLayout tab;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        num=(EditText)findViewById(R.id.txtNumber);
+        result=(TextView)findViewById(R.id.txtResult);
+        tab=(TableLayout)findViewById(R.id.tab1);
+  
+    }
+        public void ConverToFahrenheit(View v)
+        {
+            c=Double.parseDouble(String.valueOf(num.getText()));
+            String res=String.valueOf((c*9)/5+32);
+            result.setText(res);
+        }
+        public void ConverToCelsius(View v)
+        {
+            f=Double.parseDouble(String.valueOf(num.getText()));
+            String res=String.valueOf((f-32)*5/9);
+            result.setText(res);
+        }
+        }
+...............................................................................................
+
+
+
+multiple...........
+
+
+Main:
+
+
+
+package com.example.multiple;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.widget.TextView; 
+import android.view.View; 
+import android.widget.Button;
+public class MainActivity extends Activity {
+TextView textView;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+textView = (TextView) findViewById(R.id.action_settings);
+}
+public void Ganesh(View View) 
+{ 
+String button_text; 
+button_text =((Button)View).getText().toString(); 
+if(button_text.equals("click second activity")) 
+{ 
+Intent ganesh = new Intent(this,Second.class); 
+startActivity(ganesh); 
+} 
+else if (button_text.equals("click third activity")) 
+{ 
+Intent mass = new Intent(this,Third.class); 
+startActivity(mass); 
+} 
+} 
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+}
+
+
+
+activity main.xml:
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".FirstActivity" >
+<Button 
+android:id="@+id/button2" 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:onClick="Ganesh" 
+android:text="click third activity" 
+android:textColor="#f50057" 
+tools:layout_editor_absoluteX="168dp" 
+android:layout_alignParentBottom="true" 
+android:layout_toEndOf="@+id/text" 
+android:layout_marginBottom="196dp" /> 
+<TextView 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content" 
+android:text="Welcome to app!" 
+android:id="@+id/text" />
+
+<Button
+    android:id="@+id/button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/button2"
+    android:layout_alignStart="@+id/button2"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="45dp"
+    tools:layout_editor_absoluteX="168dp"
+    android:onClick="Ganesh"
+    android:text="click second activity"
+    android:textColor="#ff1744" />
+ 
+</RelativeLayout>
+
+........................
+
+
+7..............scroll view
+
+
+activity.xml
+
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/scrollView1"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" >
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="center"
+android:background="#fff5ff"
+android:orientation="vertical" >
+<Button
+android:id="@+id/button1"
+android:layout_width="200dp"
+android:layout_height="wrap_content"
+android:text="icecream"/>
+
+<Button
+    android:id="@+id/button2"
+    android:layout_width="192dp"
+    android:layout_height="82dp"
+    android:text="burger" />
+
+<Button
+    android:id="@+id/button3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Pastha" />
+
+<Button
+    android:id="@+id/button5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="bread" />
+
+<Button
+    android:id="@+id/button6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="milk" />
+
+<Button
+    android:id="@+id/button7"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="snacks" />
+
+<Button
+    android:id="@+id/button8"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="pizza" />
+
+<Button
+    android:id="@+id/button4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="jam" />
+
+<Button
+    android:id="@+id/button9"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="cookies" />
+
+<Button
+    android:id="@+id/button10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="ice" />
+
+</LinearLayout>
+</ScrollView>
+
+
+......................
+
+
+
+list view
+
+ACTIVITY_MAIN.XML
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:orientation="vertical" >
+<TextView
+android:id="@+id/textView1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Festivals"
+android:textAppearance="?android:attr/textAppearanceLarge" />
+<ListView
+android:id="@+id/listView1"
+android:layout_width="match_parent"
+android:layout_height="match_parent" >
+</ListView>
+</LinearLayout>
+
+
+
+MAINACTIVITY.JAVA
+
+
+package com.example.list2;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends Activity {
+ListView l1;
+TextView t1;
+String[] festivals={"Diwali","Ramzon","Christmas","pongal","Bakrid","Easter"};
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+l1=(ListView)findViewById(R.id.listView1);
+t1=(TextView)findViewById(R.id.textView1);
+final ArrayAdapter adapter=new 
+ArrayAdapter(this,R.layout.activity_main,R.id.textView1,festivals);
+l1.setAdapter(adapter);
+l1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+@Override
+public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+long arg3) {
+// TODO Auto-generated method stub
+String Value="Happy"+adapter.getItem(position);
+Toast.makeText(getApplicationContext(),Value,Toast.LENGTH_LONG).show();
+}
+});
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+}
+
+
+
+
+..............................................
+
+Layout:
+
+Main activity:
+
+
+
+package com.example.layouts;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+
+public class MainActivity extends Activity {
+Button bt1,bt2,bt3;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		bt1=(Button)findViewById(R.id.button1);
+		bt2=(Button)findViewById(R.id.button2);
+		bt3=(Button)findViewById(R.id.button3);
+		bt1.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View arg0){
+				Intent i=new Intent(MainActivity.this,Relative.class);
+				startActivity(i);
+			}
+		});
+		bt2.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View arg0){
+				Intent i=new Intent(MainActivity.this,Linear.class);
+				startActivity(i);
+			}
+		});
+		bt3.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View arg0){
+				Intent i=new Intent(MainActivity.this,Table.class);
+				startActivity(i);
+			}
+		});
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}
+
+
+
+Activity main_.xml
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:text="Relative" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="40dp"
+        android:text="Linear" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="68dp"
+        android:text="Table" />
+
+</RelativeLayout>
+
+
+Active relative.xml
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Relative" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="39dp"
+        android:text="Relative2" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="48dp"
+        android:text="Relative3" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="42dp"
+        android:text="Relative1" />
+
+</RelativeLayout>
+
+
+activity linear.xml
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Linear" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</LinearLayout>
+
+
+
+
+activity table:
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Table" >
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10" >
+
+                <requestFocus />
+            </EditText>
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TableRow>
+    </TableLayout>
+
+</TableLayout>
+
+......................................................
+
+
+
+
+potrait and landcapse
+
+main :
+
+
+
+package com.example.potraitlandscape;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+public class MainActivity extends Activity {
+Button bt1,bt2;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+addListenerButton();
+}
+private void addListenerButton() {
+// TODO Auto-generated method s
+bt1=(Button)findViewById(R.id.button1);
+bt1.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View arg0) {
+// TODO Auto-generated method stub
+setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+}
+});
+bt2=(Button)findViewById(R.id.button2);
+bt2.setOnClickListener(new View.OnClickListener() {
+@Override
+public void onClick(View arg0) {
+// TODO Auto-generated method stub
+setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+}
+});
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+// Inflate the menu; this adds items to the action bar if it is present.
+getMenuInflater().inflate(R.menu.main, menu);
+return true;
+}
+}
+
+
+Activity.xml
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".MainActivity" >
+<Button
+android:id="@+id/button1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentLeft="true"
+android:layout_alignParentTop="true"
+android:text="Left" />
+<Button
+android:id="@+id/button2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignBaseline="@+id/button1"
+android:layout_alignBottom="@+id/button1"
+android:layout_alignParentRight="true"
+android:text="Right" />
+<Button
+android:id="@+id/button3"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_below="@+id/button2"
+android:layout_centerHorizontal="true"
+android:layout_marginTop="82dp"
+android:text="Center" />
+<Button
+android:id="@+id/button4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentLeft="true"
+android:layout_below="@+id/button3"
+android:layout_marginTop="87dp"
+android:text="BottomLeft" />
+<Button
+android:id="@+id/button5"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignBottom="@+id/button4"
+android:layout_alignRight="@+id/button2"
+android:text="BottomRight" />
+ 
+</RelativeLayout>
+.............................................
